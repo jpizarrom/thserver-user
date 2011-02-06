@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.jpizarro.th.lib.user.entity.UserTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.user.model.service.UserService;
+import com.jpizarro.th.server.user.model.service.UserServiceImpl;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 

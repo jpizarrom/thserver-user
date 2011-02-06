@@ -89,4 +89,34 @@ public class UserServiceImpl implements UserService{
 		return false;
 	}
 
+	@Override
+	public void create(UserTO entity) throws DuplicateInstanceException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UserTO find(Long id) throws InstanceNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean exists(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public UserTO update(UserTO entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Long id) throws InstanceNotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
