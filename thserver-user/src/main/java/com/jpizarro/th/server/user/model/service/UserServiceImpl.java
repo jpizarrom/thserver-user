@@ -13,6 +13,7 @@ import com.jpizarro.th.server.user.model.entity.User;
 import com.jpizarro.th.server.user.model.persistence.accessor.UserAccessor;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
+import com.jpizarro.th.server.user.util.UserUtils;
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -98,13 +99,15 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UserTO find(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		User user = userAccessor.find(id);
+		UserTO to = UserUtils.teamTOFromTeam(user);
+		return to;
 	}
 
 	@Override
 	public boolean exists(Long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return userAccessor.exists(id);
 	}
 
 	@Override
@@ -116,6 +119,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public void remove(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
+		userAccessor.remove(id);
 		
 	}
 

@@ -1,17 +1,16 @@
 package com.jpizarro.th.server.user.view.axis;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
-import com.jpizarro.th.lib.user.entity.response.UpdatePersonalInfoTO;
-import com.jpizarro.th.lib.user.entity.response.UserRegisterTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
-public class WSUserService implements Axis2UserService{
+public class WSUserService extends SpringBeanAutowiringSupport implements Axis2UserService {
 	@Autowired
 	private UserService userService;
 
@@ -50,15 +49,15 @@ public class WSUserService implements Axis2UserService{
 	}
 
 	@Override
-	public UserTO find(Long id) throws InstanceNotFoundException {
+	public UserTO find(long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		return userService.find(id);
 	}
 
 	@Override
-	public boolean exists(Long id) {
+	public boolean exists(long id) {
 		// TODO Auto-generated method stub
-		return false;
+		return userService.exists(id);
 	}
 
 	@Override
@@ -68,8 +67,9 @@ public class WSUserService implements Axis2UserService{
 	}
 
 	@Override
-	public void remove(Long id) throws InstanceNotFoundException {
+	public void remove(long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
+		userService.remove(id);
 		
 	}
 
