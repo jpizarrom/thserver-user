@@ -1,4 +1,4 @@
-package com.jpizarro.th.server.view.web.application;
+package com.jpizarro.th.server.user.view.web.application;
 
 import org.apache.wicket.Application;
 import org.apache.wicket.Request;
@@ -17,17 +17,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wicketstuff.annotation.scan.AnnotatedMountScanner;
 
+import com.jpizarro.th.server.generic.model.service.UserService;
+import com.jpizarro.th.server.user.view.web.session.WicketSession;
+
 /**
  * Application object for your web application. If you want to run this application without deploying, run the Start class.
  */
 @Component
 public class WicketApplication extends AuthenticatedWebApplication
 { 
-//	@Autowired
-//	private UserServiceAuthenticationManager userServiceAuthenticationManager;
+	@Autowired
+	private UserServiceAuthenticationManager userServiceAuthenticationManager;
 	
-//	@Autowired
-//	private UserService userService;
+	@Autowired
+	private UserService userService;
 	
 //	@Autowired
 //	private GameService gameService;
@@ -120,8 +123,7 @@ public class WicketApplication extends AuthenticatedWebApplication
 	@Override
 	public Session newSession(Request request, Response response) {
 	
-//		return new WicketSession(request);
-		return null;
+		return new WicketSession(request);
 	}
 	
 //	@Override
@@ -149,20 +151,19 @@ public class WicketApplication extends AuthenticatedWebApplication
 	@Override
 	protected Class<? extends AuthenticatedWebSession> getWebSessionClass() {
 		// TODO Auto-generated method stub
-//		return WicketSession.class;
-		return null;
+		return WicketSession.class;
 	}
 	
-//	public UserService getUserService() {
-//		return userService;
-//	}
+	public UserService getUserService() {
+		return userService;
+	}
 
 //	public GameService getGameService() {
 //		return gameService;
 //	}
 
-//	public UserServiceAuthenticationManager getUserServiceAuthenticationManager() {
-//		return userServiceAuthenticationManager;
-//	}
+	public UserServiceAuthenticationManager getUserServiceAuthenticationManager() {
+		return userServiceAuthenticationManager;
+	}
 
 }

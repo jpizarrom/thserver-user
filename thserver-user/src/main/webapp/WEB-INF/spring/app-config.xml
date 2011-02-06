@@ -12,7 +12,7 @@
 	<context:property-placeholder location="classpath:business.properties" />
 
 	<context:component-scan annotation-config="true"
-		base-package="com.jpizarro.th.server" />
+		base-package="com.jpizarro.th.server.user" />
 
 	<!-- ======================= Spring Infrastructure ==================== -->
 
@@ -61,11 +61,11 @@
 	<!-- ======================== Business Objects ======================== -->
 
 	<!-- Accessors. -->
-	<!--<bean id="userAccessor"
+	<!-- <bean id="userAccessor"
 		class="com.jpizarro.th.server.user.model.persistence.accessor.UserAccessorHibernate"
-		p:sessionFactory-ref="sessionFactory" />
+		p:sessionFactory-ref="sessionFactory" />-->
 
-	<bean id="teamAccessor"
+	<!--<bean id="teamAccessor"
 		class="com.jpizarro.th.server.team.model.persistence.accessor.TeamAccessorHibernate"
 		p:sessionFactory-ref="sessionFactory" />
 
@@ -107,7 +107,7 @@
 <!--			</security:user-service>-->
 <!--		</security:authentication-provider>-->
 	</security:authentication-manager>
-	<!-- <bean id="customAuthenticationProvider" class="com.jpizarro.th.server.view.web.application.CustomAuthenticationProvider">
+	<!-- <bean id="customAuthenticationProvider" class="com.jpizarro.th.server.user.view.web.application.CustomAuthenticationProvider">
 	</bean>-->
 <!--	<bean id="userServiceAuthenticationManager"-->
 <!--    	class="com.jpizarro.th.server.view.web.application.UserServiceAuthenticationManagerImpl">-->

@@ -1,4 +1,4 @@
-package com.jpizarro.th.server.view.web.application;
+package com.jpizarro.th.server.user.view.web.application;
 
 
 import org.springframework.security.authentication.AuthenticationManager;
