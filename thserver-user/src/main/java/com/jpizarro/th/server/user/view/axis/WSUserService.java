@@ -1,5 +1,8 @@
 package com.jpizarro.th.server.user.view.axis;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
@@ -10,6 +13,7 @@ import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
+@WebService(serviceName="MyService", targetNamespace="http://test")
 public class WSUserService extends SpringBeanAutowiringSupport implements Axis2UserService {
 	@Autowired
 	private UserService userService;
@@ -31,6 +35,7 @@ public class WSUserService extends SpringBeanAutowiringSupport implements Axis2U
 	}
 
 	@Override
+	@WebMethod
 	public UserTO findUserById(long userId) {
 		// TODO Auto-generated method stub
 		try {
@@ -52,6 +57,10 @@ public class WSUserService extends SpringBeanAutowiringSupport implements Axis2U
 	public UserTO find(long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		return userService.find(id);
+	}
+	public UserTO getWSUser(long id) throws InstanceNotFoundException{
+		return find(id);
+		
 	}
 
 	@Override
