@@ -1,0 +1,21 @@
+<serviceGroup>
+	<service name="WSUserService">
+
+		<!-- Invoke SpringInit on server startup and shutdown -->
+		<!-- <service name="SpringAwareService" class="com.jpizarro.th.server.view.axis.SpringInit"> -->
+		<description>
+			simple spring example - inside the AAR
+    </description>
+		<!-- need the TCCL param when using spring inside the AAR -->
+		<parameter name="ServiceTCCL">composite</parameter>
+		<parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier
+		</parameter>
+		<parameter name="SpringBeanName">wSUserService</parameter>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+	</service>
+</serviceGroup>

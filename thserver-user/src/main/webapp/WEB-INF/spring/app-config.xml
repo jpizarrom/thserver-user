@@ -61,9 +61,9 @@
 	<!-- ======================== Business Objects ======================== -->
 
 	<!-- Accessors. -->
-	<!-- <bean id="userAccessor"
+	<bean id="userAccessor"
 		class="com.jpizarro.th.server.user.model.persistence.accessor.UserAccessorHibernate"
-		p:sessionFactory-ref="sessionFactory" />-->
+		p:sessionFactory-ref="sessionFactory" />
 
 	<!--<bean id="teamAccessor"
 		class="com.jpizarro.th.server.team.model.persistence.accessor.TeamAccessorHibernate"
@@ -121,11 +121,11 @@
 	
 
 	<security:http auto-config="true" access-denied-page="/static/AccessDenied.html">
-		<security:intercept-url pattern="/ws/login*"
-			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<security:intercept-url pattern="/login*"
-			access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		 <security:intercept-url pattern="/**" access="ROLE_USER" />
+<!--		<security:intercept-url pattern="/ws/login*"-->
+<!--			access="IS_AUTHENTICATED_ANONYMOUSLY" />-->
+<!--		<security:intercept-url pattern="/login*"-->
+<!--			access="IS_AUTHENTICATED_ANONYMOUSLY" />-->
+<!--		 <security:intercept-url pattern="/**" access="ROLE_USER" />-->
 <!--		 <security:form-login login-page='/login'/>-->
 	</security:http>
 
@@ -133,17 +133,17 @@
 	<!-- Axis2. -->
 	<!-- ******************************************************************* -->
 	<!-- Configure spring to give a hook to axis2 without a ServletContext -->
-	<!--<bean id="applicationContext"
-		class="org.apache.axis2.extensions.spring.receivers.ApplicationContextHolder" />-->
+	<bean id="applicationContext"
+		class="org.apache.axis2.extensions.spring.receivers.ApplicationContextHolder" />
 
-	<!-- <bean id="springAwareService" class="com.jpizarro.th.server.view.axis.SpringAwareService"> 
-		</bean> -->
+<!--	<bean id="springAwareService" class="com.jpizarro.th.server.view.axis.SpringAwareService"> -->
+<!--		</bean>-->
 
 	<!--<bean id="wSGameService" class="com.jpizarro.th.server.game.view.axis.WSGameService">
 	</bean>-->
 
-	<!--<bean id="wSUserService" class="com.jpizarro.th.server.user.view.axis.WSUserService">
-	</bean>-->
+	<bean id="wSUserService" class="com.jpizarro.th.server.user.view.axis.WSUserService">
+	</bean>
 
 	<!-- just another bean / interface with a wired implementation, that's injected 
 		by Spring into the Web Service -->
