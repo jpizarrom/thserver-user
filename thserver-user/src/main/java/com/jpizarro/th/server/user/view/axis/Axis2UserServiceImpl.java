@@ -53,17 +53,13 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	@Override
 	public void create(UserTO entity) throws DuplicateInstanceException {
 		// TODO Auto-generated method stub
-		
+		userService.create(entity);
 	}
 
 	@Override
 	public UserTO find(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		return userService.find(id);
-	}
-	public UserTO getWSUser(Long id) throws InstanceNotFoundException{
-		return find(id);
-		
 	}
 
 	@Override
@@ -75,7 +71,7 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	@Override
 	public UserTO update(UserTO entity) {
 		// TODO Auto-generated method stub
-		return null;
+		return userService.update(entity);
 	}
 
 	@Override
