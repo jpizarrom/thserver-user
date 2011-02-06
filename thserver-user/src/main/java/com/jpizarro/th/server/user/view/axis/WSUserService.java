@@ -1,7 +1,10 @@
 package com.jpizarro.th.server.user.view.axis;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -13,8 +16,9 @@ import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
-@WebService(serviceName="MyService", targetNamespace="http://test")
-public class WSUserService extends SpringBeanAutowiringSupport implements Axis2UserService {
+@WebService(serviceName="UserService")
+@SOAPBinding(style=SOAPBinding.Style.RPC)
+public class WSUserService implements Axis2UserService {
 	@Autowired
 	private UserService userService;
 
@@ -35,8 +39,7 @@ public class WSUserService extends SpringBeanAutowiringSupport implements Axis2U
 	}
 
 	@Override
-	@WebMethod
-	public UserTO findUserById(long userId) {
+	public UserTO findUserById(Long userId) {
 		// TODO Auto-generated method stub
 		try {
 			return userService.findUserById(userId);
@@ -54,17 +57,17 @@ public class WSUserService extends SpringBeanAutowiringSupport implements Axis2U
 	}
 
 	@Override
-	public UserTO find(long id) throws InstanceNotFoundException {
+	public UserTO find(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		return userService.find(id);
 	}
-	public UserTO getWSUser(long id) throws InstanceNotFoundException{
+	public UserTO getWSUser(Long id) throws InstanceNotFoundException{
 		return find(id);
 		
 	}
 
 	@Override
-	public boolean exists(long id) {
+	public boolean exists(Long id) {
 		// TODO Auto-generated method stub
 		return userService.exists(id);
 	}
@@ -76,7 +79,7 @@ public class WSUserService extends SpringBeanAutowiringSupport implements Axis2U
 	}
 
 	@Override
-	public void remove(long id) throws InstanceNotFoundException {
+	public void remove(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		userService.remove(id);
 		
