@@ -3,9 +3,11 @@ package com.jpizarro.th.server.user.view.axis;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
+import com.jpizarro.th.lib.user.entity.response.UpdatePersonalInfoTO;
+import com.jpizarro.th.lib.user.entity.response.UserRegisterTO;
+import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.user.model.service.UserService;
-import com.jpizarro.th.server.user.model.service.UserServiceImpl;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
@@ -39,6 +41,36 @@ public class WSUserService implements Axis2UserService{
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public void create(UserTO entity) throws DuplicateInstanceException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public UserTO find(Long id) throws InstanceNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean exists(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public UserTO update(UserTO entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void remove(Long id) throws InstanceNotFoundException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
