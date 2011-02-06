@@ -9,7 +9,6 @@ import com.jpizarro.th.lib.user.entity.response.UpdatePersonalInfoTO;
 import com.jpizarro.th.lib.user.entity.response.UserRegisterTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
-import com.jpizarro.th.server.generic.model.service.UserService;
 import com.jpizarro.th.server.user.model.entity.User;
 import com.jpizarro.th.server.user.model.persistence.accessor.UserAccessor;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;

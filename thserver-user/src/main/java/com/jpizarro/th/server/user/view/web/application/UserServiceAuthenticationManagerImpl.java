@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
-import com.jpizarro.th.server.generic.model.service.UserService;
+import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 

@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.wicketstuff.annotation.scan.AnnotatedMountScanner;
 
-import com.jpizarro.th.server.generic.model.service.UserService;
+import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.view.web.session.WicketSession;
 
 /**
