@@ -142,7 +142,7 @@
 	<!--<bean id="wSGameService" class="com.jpizarro.th.server.game.view.axis.WSGameService">
 	</bean>-->
 
-	<bean id="wSUserService" class="com.jpizarro.th.server.user.view.axis.WSUserService">
+	<bean id="wSUserService" class="com.jpizarro.th.server.user.view.axis.Axis2UserServiceImpl">
 	</bean>
 
 	<!-- just another bean / interface with a wired implementation, that's injected 

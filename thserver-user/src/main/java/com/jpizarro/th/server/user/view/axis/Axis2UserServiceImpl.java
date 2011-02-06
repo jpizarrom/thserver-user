@@ -18,7 +18,7 @@ import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswo
 
 @WebService(serviceName="UserService")
 @SOAPBinding(style=SOAPBinding.Style.RPC)
-public class WSUserService implements Axis2UserService {
+public class Axis2UserServiceImpl implements Axis2UserService {
 	@Autowired
 	private UserService userService;
 
