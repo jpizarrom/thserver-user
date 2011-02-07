@@ -12,18 +12,31 @@
 	<context:component-scan base-package="com.jpizarro.th" />
 
   <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+  
+  <!-- Map handler methods on HTTP paths with RequestMapping etc -->
   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 
 
-	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
-
-	<bean id="userXmlView"
-		class="org.springframework.web.servlet.view.xml.MarshallingView">
-		<constructor-arg>
-			<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
-			</bean>
-		</constructor-arg>
-	</bean>
+<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+  <property name="mediaTypes">
+    <map>
+      <entry key="json" value="application/json" />
+      <entry key="xml" value="application/xml"/>
+    </map>
+  </property>
+  <property name="defaultViews">
+    <list>
+      <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+      <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+        <constructor-arg>
+          <bean class="org.springframework.oxm.xstream.XStreamMarshaller">
+<!--            <property name="autodetectAnnotations" value="true"/>-->
+          </bean>
+        </constructor-arg>
+      </bean>
+    </list>
+  </property>
+</bean>
 
 
 </beans>

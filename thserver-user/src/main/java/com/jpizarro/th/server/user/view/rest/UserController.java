@@ -16,7 +16,7 @@ import com.jpizarro.th.server.user.model.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	private String XML_VIEW_NAME = "userXmlView";
+	private String XML_VIEW_NAME = "users";
 	
 	@RequestMapping(method=RequestMethod.GET, value="/users/{id}")
 	public ModelAndView getEmployee(@PathVariable String id) {
@@ -30,7 +30,7 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX + "user", to);
+		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX, to);
 	}
 
 
