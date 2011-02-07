@@ -14,9 +14,11 @@ import com.jpizarro.th.server.user.model.persistence.accessor.UserAccessor;
 import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 import com.jpizarro.th.server.user.util.UserUtils;
+import com.thoughtworks.xstream.XStream;
 
 @Service
 public class UserServiceImpl implements UserService{
+
 	@Autowired
 	private UserAccessor userAccessor;
 
@@ -117,6 +119,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	@Transactional
 	public void remove(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		userAccessor.remove(id);

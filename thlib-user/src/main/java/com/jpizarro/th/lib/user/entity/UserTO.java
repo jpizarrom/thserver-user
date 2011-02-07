@@ -2,6 +2,8 @@ package com.jpizarro.th.lib.user.entity;
 
 import java.io.Serializable;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 public class UserTO implements Serializable{
 
 	/**
