@@ -6,6 +6,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
@@ -19,7 +20,7 @@ public class UserController {
 	private String XML_VIEW_NAME = "users";
 	
 	@RequestMapping(method=RequestMethod.GET, value="/users/{id}")
-	public ModelAndView getEmployee(@PathVariable String id) {
+	public UserTO getEmployee(@PathVariable String id) {
 		UserTO to = null;
 		try {
 			to = userService.find(Long.parseLong(id));
@@ -30,7 +31,8 @@ public class UserController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX, to);
+		return to;
+//		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX+"object", to);
 	}
 
 

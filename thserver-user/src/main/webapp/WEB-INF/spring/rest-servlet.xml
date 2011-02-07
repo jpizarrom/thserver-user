@@ -20,20 +20,31 @@
 <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
   <property name="mediaTypes">
     <map>
-      <entry key="json" value="application/json" />
       <entry key="xml" value="application/xml"/>
+<!--      <entry key="json" value="application/json"/>-->
     </map>
   </property>
   <property name="defaultViews">
     <list>
-      <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
       <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
         <constructor-arg>
           <bean class="org.springframework.oxm.xstream.XStreamMarshaller">
-<!--            <property name="autodetectAnnotations" value="true"/>-->
+<!--		  	<property name="aliases">-->
+<!--		    	<map>-->
+<!--		        	<entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />-->
+<!--		        </map>-->
+<!--			</property>-->
+<!--	        <property name="annotatedClasses">-->
+<!--	            <list>-->
+<!--	                <value>com.jpizarro.th.lib.user.entity.UserTO</value>-->
+<!--	            </list>-->
+<!--	        </property>-->
+
+            <property name="autodetectAnnotations" value="true"/>
           </bean>
         </constructor-arg>
       </bean>
+<!--      <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>-->
     </list>
   </property>
 </bean>

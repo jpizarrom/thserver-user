@@ -2,6 +2,8 @@ package com.jpizarro.th.lib.user.entity;
 
 import java.io.Serializable;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("user")
