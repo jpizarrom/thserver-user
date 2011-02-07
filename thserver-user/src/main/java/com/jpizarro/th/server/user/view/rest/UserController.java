@@ -16,9 +16,9 @@ import com.jpizarro.th.server.user.model.service.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	private String XML_VIEW_NAME = "bookXmlView";
+	private String XML_VIEW_NAME = "userXmlView";
 	
-	@RequestMapping(method=RequestMethod.GET, value="/employee/{id}")
+	@RequestMapping(method=RequestMethod.GET, value="/users/{id}")
 	public ModelAndView getEmployee(@PathVariable String id) {
 		UserTO to = null;
 		try {

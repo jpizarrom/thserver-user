@@ -1,5 +1,7 @@
 package com.jpizarro.th.lib.user.util.xml.xstream;
 
+import java.util.List;
+
 import com.jpizarro.th.lib.generic.util.exception.THException;
 import com.jpizarro.th.lib.generic.util.xml.xstream.CalendarConverter;
 import com.jpizarro.th.lib.generic.util.xml.xstream.XStreamFactory;
@@ -20,7 +22,10 @@ public class UserXStreamFactory implements XStreamFactory
 
 		xstream.addImplicitCollection(UsersTO.class, "users", UserTO.class);
 			
-		xstream.alias("user", UserTO.class);
+//		xstream.alias("user", UserTO.class);
+		xstream.processAnnotations(UserTO.class);
+		
+//		xstream.alias("users", List.class);
 		
 		xstream.alias("joined", Boolean.class);
 		xstream.alias("logout", Boolean.class);

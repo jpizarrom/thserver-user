@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
+@XStreamAlias("user")
 public class UserTO implements Serializable{
 
 	/**
