@@ -377,8 +377,6 @@
 			<artifactId>axis2-transport-local</artifactId>
 			<version>1.5.1</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.apache.axis2</groupId>
 			<artifactId>axis2-spring</artifactId>
@@ -391,6 +389,18 @@
 			<artifactId>axis2-json</artifactId>
 			<version>${axis2.version}</version>
 		</dependency>
+
+<dependency>
+   <groupId>org.apache.ws.commons.axiom</groupId>
+   <artifactId>axiom-api</artifactId>
+   <version>1.2.10</version>
+</dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.axiom</groupId>
+			<artifactId>axiom-impl</artifactId>
+			<version>1.2.10</version>
+		</dependency>
+
 
 	</dependencies>
 
