@@ -15,7 +15,7 @@ public interface Axis2UserService {
 	
 	UserTO update(UserTO entity);
 
-	void remove(Long id) throws InstanceNotFoundException;	
+	boolean remove(Long id) throws InstanceNotFoundException;	
 	
 	
 	public LoginResultTO login(String username, String password);

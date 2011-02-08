@@ -14,13 +14,14 @@ import com.jpizarro.th.server.generic.model.persistence.util.exceptions.Instance
 import com.jpizarro.th.server.user.model.service.UserService;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
 	@Autowired
 	private UserService userService;
 	private String XML_VIEW_NAME = "users";
 	
-	@RequestMapping(method=RequestMethod.GET, value="/users/{id}")
-	public UserTO getEmployee(@PathVariable String id) {
+	@RequestMapping(method=RequestMethod.GET, value="/{id}")
+	public UserTO getEntity(@PathVariable String id) {
 		UserTO to = null;
 		try {
 			to = userService.find(Long.parseLong(id));
@@ -33,6 +34,20 @@ public class UserController {
 		}
 		return to;
 //		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX+"object", to);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/{id}/remove")
+	public ModelAndView removeEntity(@PathVariable Long id) {
+		boolean ret = true;
+		try {
+			userService.remove(id);
+		} catch (InstanceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			ret = false;
+		}
+		
+		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX+"user", ret);
 	}
 
 

@@ -75,9 +75,10 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	}
 
 	@Override
-	public void remove(Long id) throws InstanceNotFoundException {
+	public boolean remove(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		userService.remove(id);
+		return true;
 		
 	}
 
