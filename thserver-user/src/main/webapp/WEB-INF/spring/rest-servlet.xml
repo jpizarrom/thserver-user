@@ -14,14 +14,32 @@
 <!--   <import resource="annotation.xml"/>  -->
 <!--   <import resource="marshalling.xml">  -->
 
-	<context:component-scan base-package="com.jpizarro.th" />
-<tx:annotation-driven />
+		<context:component-scan annotation-config="true"
+		base-package="com.jpizarro.th" />
+<!--<tx:annotation-driven />-->
 <!--<mvc:annotation-driven />-->
 
-  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
-  
-  <!-- Map handler methods on HTTP paths with RequestMapping etc -->
-  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+	<bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+		<property name="autodetectAnnotations" value="true" />
+	</bean>
+
+	<bean id="xmlView"
+		class="org.springframework.web.servlet.view.xml.MarshallingView">
+		<constructor-arg ref="marshaller" />
+	</bean>
+
+	<bean id="converter"
+		class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+		<constructor-arg ref="marshaller" />
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="converter" />
+			</list>
+		</property>
+	</bean>
 
 
 <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
@@ -33,24 +51,7 @@
   </property>
   <property name="defaultViews">
     <list>
-      <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
-        <constructor-arg>
-          <bean class="org.springframework.oxm.xstream.XStreamMarshaller">
-<!--		  	<property name="aliases">-->
-<!--		    	<map>-->
-<!--		        	<entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />-->
-<!--		        </map>-->
-<!--			</property>-->
-<!--	        <property name="annotatedClasses">-->
-<!--	            <list>-->
-<!--	                <value>com.jpizarro.th.lib.user.entity.UserTO</value>-->
-<!--	            </list>-->
-<!--	        </property>-->
-
-            <property name="autodetectAnnotations" value="true"/>
-          </bean>
-        </constructor-arg>
-      </bean>
+		<ref bean="xmlView" />
 <!--      <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>-->
     </list>
   </property>
