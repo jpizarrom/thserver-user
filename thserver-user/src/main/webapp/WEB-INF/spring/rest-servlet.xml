@@ -14,18 +14,17 @@
 <!--   <import resource="annotation.xml"/>  -->
 <!--   <import resource="marshalling.xml">  -->
 
-		<context:component-scan annotation-config="true"
-		base-package="com.jpizarro.th" />
-<tx:annotation-driven />
-<!--<mvc:annotation-driven />-->
+		<context:component-scan base-package="com.jpizarro.th" annotation-config="true"/>
+		<tx:annotation-driven />
+<!--		<mvc:annotation-driven />-->
 
 	<bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
-		<property name="autodetectAnnotations" value="false" />
-    <property name="aliases">
-        <map>
-            <entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />
-        </map>
-    </property>
+		<property name="autodetectAnnotations" value="true" />
+	    <property name="aliases">
+	        <map>
+	            <entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />
+	        </map>
+	    </property>
 	</bean>
 
 	<bean id="xmlView"
