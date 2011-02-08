@@ -14,11 +14,11 @@
 <!--   <import resource="annotation.xml"/>  -->
 <!--   <import resource="marshalling.xml">  -->
 
-		<context:component-scan base-package="com.jpizarro.th" annotation-config="true"/>
+		<context:component-scan base-package="com.jpizarro.th" />
 		<tx:annotation-driven />
 <!--		<mvc:annotation-driven />-->
 
-	<bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+	<bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
 		<property name="autodetectAnnotations" value="true" />
 	    <property name="aliases">
 	        <map>
@@ -29,19 +29,22 @@
 
 	<bean id="xmlView"
 		class="org.springframework.web.servlet.view.xml.MarshallingView">
-		<constructor-arg ref="marshaller" />
+		<constructor-arg ref="xstreamMarshaller" />
 	</bean>
 
-	<bean id="converter"
+	<bean id="xmlMessageConverter"
 		class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-		<constructor-arg ref="marshaller" />
+		<constructor-arg ref="xstreamMarshaller" />
 	</bean>
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+<!--	<bean id="jsonHttpMessageConverter"-->
+<!--		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />-->
+<!--	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />-->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="converter" />
+				<ref bean="xmlMessageConverter" />
+<!--				<ref bean="jsonHttpMessageConverter" />-->
 			</list>
 		</property>
 	</bean>
@@ -51,13 +54,13 @@
   <property name="mediaTypes">
     <map>
       <entry key="xml" value="application/xml"/>
-<!--      <entry key="json" value="application/json"/>-->
+      <entry key="json" value="application/json"/>
     </map>
   </property>
   <property name="defaultViews">
     <list>
 		<ref bean="xmlView" />
-<!--      <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>-->
+<!--      	<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>-->
     </list>
   </property>
 </bean>
