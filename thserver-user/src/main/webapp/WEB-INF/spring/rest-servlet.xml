@@ -16,11 +16,16 @@
 
 		<context:component-scan annotation-config="true"
 		base-package="com.jpizarro.th" />
-<!--<tx:annotation-driven />-->
+<tx:annotation-driven />
 <!--<mvc:annotation-driven />-->
 
 	<bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
-		<property name="autodetectAnnotations" value="true" />
+		<property name="autodetectAnnotations" value="false" />
+    <property name="aliases">
+        <map>
+            <entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />
+        </map>
+    </property>
 	</bean>
 
 	<bean id="xmlView"
@@ -32,6 +37,7 @@
 		class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
 		<constructor-arg ref="marshaller" />
 	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">

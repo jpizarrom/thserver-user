@@ -26,4 +26,11 @@ public class UserUtils {
 		
 		return to;
 	}
+	public static User teamFromTeamTO(UserTO to) {
+		User u = new User();
+		
+		u.setName(to.getName());
+		
+		return u;
+	}
 }

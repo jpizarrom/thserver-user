@@ -93,8 +93,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	@Transactional
 	public void create(UserTO entity) throws DuplicateInstanceException {
 		// TODO Auto-generated method stub
+		User user = UserUtils.teamFromTeamTO(entity);
+		userAccessor.create(user);
 		
 	}
 
