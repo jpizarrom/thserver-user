@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
+import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
 import com.jpizarro.th.lib.user.entity.response.UpdatePersonalInfoTO;
 import com.jpizarro.th.lib.user.entity.response.UserRegisterTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.user.model.entity.User;
 import com.jpizarro.th.server.user.model.persistence.accessor.UserAccessor;
-import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 import com.jpizarro.th.server.user.util.UserUtils;
 import com.thoughtworks.xstream.XStream;
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService{
 		if (password .equals(user.getPassword()))
 		//if (PasswordEncrypter.isClearPasswordCorrect(clearPassword, player
 		//		.getUserData().getEncryptedPassword()))
-			return new LoginResultTO(user);
+			return new LoginResultTO(user.getUserId(), user.getRole(), user.getUsername());
 		
 		throw new IncorrectPasswordException(username);
 	}

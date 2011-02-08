@@ -5,13 +5,13 @@ import org.wicketstuff.annotation.mount.MountPath;
 
 //import com.jpizarro.th.lib.game.entity.GameTO;
 import com.jpizarro.th.lib.user.entity.UserTO;
+import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
 import com.jpizarro.th.lib.user.util.xml.xstream.UserXStreamFactory;
 //import com.jpizarro.th.server.game.model.service.GameService;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.generic.view.web.ws.util.GenericWS;
 //import com.jpizarro.th.server.generic.view.web.ws.util.GenericWS;
 import com.jpizarro.th.server.user.model.service.UserService;
-import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.view.web.application.WicketApplication;
 import com.jpizarro.th.server.user.view.web.session.WicketSession;
 import com.thoughtworks.xstream.XStream;

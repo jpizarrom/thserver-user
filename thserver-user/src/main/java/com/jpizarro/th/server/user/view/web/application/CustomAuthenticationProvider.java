@@ -13,9 +13,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.user.model.service.UserService;
-import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
 public class CustomAuthenticationProvider implements AuthenticationProvider {

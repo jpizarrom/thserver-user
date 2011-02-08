@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
+import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.user.model.service.UserService;
-import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
 @WebService(serviceName="UserService")
@@ -51,15 +51,26 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	}
 
 	@Override
-	public void create(UserTO entity) throws DuplicateInstanceException {
+	public void create(UserTO entity) {
 		// TODO Auto-generated method stub
-		userService.create(entity);
+		try {
+			userService.create(entity);
+		} catch (DuplicateInstanceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public UserTO find(Long id) throws InstanceNotFoundException {
+	public UserTO find(Long id) {
 		// TODO Auto-generated method stub
-		return userService.find(id);
+		try {
+			return userService.find(id);
+		} catch (InstanceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
@@ -75,9 +86,15 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	}
 
 	@Override
-	public boolean remove(Long id) throws InstanceNotFoundException {
+	public boolean remove(Long id) {
 		// TODO Auto-generated method stub
-		userService.remove(id);
+		try {
+			userService.remove(id);
+		} catch (InstanceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 		
 	}

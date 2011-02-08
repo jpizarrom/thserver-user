@@ -1,21 +1,20 @@
 package com.jpizarro.th.server.user.view.axis;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
+import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
-import com.jpizarro.th.server.generic.view.axis.GenericService;
-import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
 
 public interface Axis2UserService {
-	void create(UserTO entity) throws DuplicateInstanceException;
+	void create(UserTO entity);
 	
-	UserTO find(Long id) throws InstanceNotFoundException;
+	UserTO find(Long id);
 	
 	boolean exists(Long id);
 	
 	UserTO update(UserTO entity);
 
-	boolean remove(Long id) throws InstanceNotFoundException;	
+	boolean remove(Long id);	
 	
 	
 	public LoginResultTO login(String username, String password);

@@ -10,7 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.jpizarro.th.server.user.model.service.to.LoginResultTO;
+import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
 import com.jpizarro.th.server.user.view.web.application.WicketApplication;
 
 public class WicketSession extends AuthenticatedWebSession {
