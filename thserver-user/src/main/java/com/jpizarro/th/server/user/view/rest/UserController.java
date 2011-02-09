@@ -64,8 +64,15 @@ public class UserController implements GenericController <UserTO, Long>{
 
 	@Override
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
-	public UserTO updateEntity(String body) {
+	public UserTO updateEntity(@PathVariable Long id, @RequestBody UserTO entity) {
 		// TODO Auto-generated method stub
+		try {
+			entity.setUserId(id);
+			return userService.update(entity);
+		} catch (InstanceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

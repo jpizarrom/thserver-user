@@ -123,9 +123,15 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserTO update(UserTO entity) {
+	@Transactional
+	public UserTO update(UserTO entity) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
+		User user = UserUtils.teamFromTeamTO(entity);
+		User u = userAccessor.find(entity.getUserId());
+		user.setUsername(u.getUsername());
+		user = userAccessor.update(user);
+		UserTO to = UserUtils.teamTOFromTeam(user);
+		return to;
 	}
 
 	@Override
@@ -133,7 +139,6 @@ public class UserServiceImpl implements UserService{
 	public void remove(Long id) throws InstanceNotFoundException {
 		// TODO Auto-generated method stub
 		userAccessor.remove(id);
-		
 	}
 
 	@Override

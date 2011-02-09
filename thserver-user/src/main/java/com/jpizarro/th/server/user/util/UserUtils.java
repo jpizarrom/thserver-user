@@ -29,6 +29,7 @@ public class UserUtils {
 	public static User teamFromTeamTO(UserTO to) {
 		User u = new User();
 		
+		u.setUserId(to.getUserId());
 		u.setName(to.getName());
 		u.setUsername(to.getUsername());
 		
