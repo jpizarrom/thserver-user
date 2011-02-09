@@ -1,13 +1,9 @@
 package com.jpizarro.th.server.user.view.axis;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
 import com.jpizarro.th.lib.user.entity.response.LoginResultTO;
@@ -82,7 +78,13 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	@Override
 	public UserTO update(UserTO entity) {
 		// TODO Auto-generated method stub
-		return userService.update(entity);
+		try {
+			return userService.update(entity);
+		} catch (InstanceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override

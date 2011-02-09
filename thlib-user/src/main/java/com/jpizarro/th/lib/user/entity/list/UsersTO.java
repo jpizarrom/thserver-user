@@ -32,6 +32,7 @@ public class UsersTO {
 	}
 	public void setUsers(List<UserTO> users) {
 		this.users = users;
+		this.count = users.size();
 	}
 	public void addUser(UserTO u){
 		this.users.add(u);
