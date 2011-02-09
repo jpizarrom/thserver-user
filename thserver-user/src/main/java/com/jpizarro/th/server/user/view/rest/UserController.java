@@ -76,8 +76,14 @@ public class UserController implements GenericController <UserTO, Long>{
 		UserTO r = new UserTO();
 		try {
 			userService.create(body);
-			r.setName(body.getName());
 		} catch (DuplicateInstanceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return r; 
+		}
+		try {
+			r = userService.findUserByUserName(body.getUsername());
+		} catch (InstanceNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

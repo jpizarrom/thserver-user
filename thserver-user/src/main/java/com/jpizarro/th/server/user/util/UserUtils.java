@@ -30,6 +30,7 @@ public class UserUtils {
 		User u = new User();
 		
 		u.setName(to.getName());
+		u.setUsername(to.getUsername());
 		
 		return u;
 	}
