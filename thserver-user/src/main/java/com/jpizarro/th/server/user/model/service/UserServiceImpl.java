@@ -94,14 +94,14 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	@Transactional
-	public void create(UserTO entity) throws DuplicateInstanceException {
+	public UserTO create(UserTO entity) throws DuplicateInstanceException {
 		// TODO Auto-generated method stub
 		try {
 			userAccessor.findByUsername(entity.getUsername());
 		} catch (InstanceNotFoundException e) {
 			User user = UserUtils.teamFromTeamTO(entity);
 			userAccessor.create(user);
-			return ;
+			return UserUtils.teamTOFromTeam(user);
 		}
 	
 		throw new DuplicateInstanceException("Login exists", User.class, "");

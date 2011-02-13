@@ -27,6 +27,7 @@ public class UserController implements GenericController <UserTO, Long>{
 	
 	@RequestMapping(method=RequestMethod.GET, value="/{id}",
 			headers="Accept=application/xml")
+	@ResponseBody
 	public UserTO getEntity(@PathVariable Long id) {
 		UserTO to = null;
 		try {
@@ -64,6 +65,7 @@ public class UserController implements GenericController <UserTO, Long>{
 
 	@Override
 	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
+	@ResponseBody
 	public UserTO updateEntity(@PathVariable Long id, @RequestBody UserTO entity) {
 		// TODO Auto-generated method stub
 		try {
@@ -77,20 +79,14 @@ public class UserController implements GenericController <UserTO, Long>{
 	}
 
 	@Override
-	@RequestMapping(method=RequestMethod.POST, value="")
+	@RequestMapping(method=RequestMethod.POST)
+	@ResponseBody
 	public UserTO addEntity(@RequestBody UserTO body) {
 		// TODO Auto-generated method stub
-		UserTO r = new UserTO();
+		UserTO r = null;
 		try {
-			userService.create(body);
+			r = userService.create(body);
 		} catch (DuplicateInstanceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return r; 
-		}
-		try {
-			r = userService.findUserByUserName(body.getUsername());
-		} catch (InstanceNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
