@@ -38,7 +38,7 @@ public class Axis2UserServiceImpl implements Axis2UserService {
 	public UserTO findUserById(Long userId) {
 		// TODO Auto-generated method stub
 		try {
-			return userService.findUserById(userId);
+			return userService.find(userId);
 		} catch (InstanceNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

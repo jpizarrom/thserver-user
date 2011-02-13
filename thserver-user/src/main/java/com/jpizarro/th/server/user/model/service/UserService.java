@@ -10,7 +10,7 @@ import com.jpizarro.th.server.generic.model.service.GenericService;
 import com.jpizarro.th.server.user.model.service.util.exceptions.IncorrectPasswordException;
 
 public interface UserService extends GenericService <UserTO, Long>{
-	public UserTO findUserById(long userId) throws InstanceNotFoundException;
+//	public UserTO findUserById(long userId) throws InstanceNotFoundException;
 	public UserTO findUserByUserName(String username) throws InstanceNotFoundException;
 	
 	public LoginResultTO login(String username, String password)

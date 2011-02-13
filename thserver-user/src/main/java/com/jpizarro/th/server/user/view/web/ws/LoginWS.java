@@ -42,7 +42,7 @@ public class LoginWS extends GenericWS {
 			
 			try {
 //				gTO = gameService.findGameById(userService.findUserById(loginResultTO.getUserId()).getGameId());
-				uTO = userService.findUserById(loginResultTO.getUserId());
+				uTO = userService.find(loginResultTO.getUserId());
 			} catch (InstanceNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -22,23 +22,22 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserAccessor userAccessor;
 
-	@Override
-	public UserTO findUserById(long userId) throws InstanceNotFoundException {
-		User user = userAccessor.find(userId);
-		System.out.println("IOIO : " + user);
-		UserTO userTO = new UserTO();
-		userTO.setUserId( user.getUserId());
-		userTO.setUsername( user.getUsername());
-		userTO.setPassword( user.getPassword());
-//		userTO.set = user.getRole();
-//		if (user.getTeam() != null && user.getTeam().getGame()!= null)
-//			userTO.setGameId(user.getTeam().getGame().getGameId());
-		
-		userTO.setLatitude( user.getLatitude());
-		userTO.setLongitude( user.getLongitude());
-		
-		return userTO;
-	}
+//	public UserTO find(long userId) throws InstanceNotFoundException {
+//		User user = userAccessor.find(userId);
+//		System.out.println("IOIO : " + user);
+//		UserTO userTO = new UserTO();
+//		userTO.setUserId( user.getUserId());
+//		userTO.setUsername( user.getUsername());
+//		userTO.setPassword( user.getPassword());
+////		userTO.set = user.getRole();
+////		if (user.getTeam() != null && user.getTeam().getGame()!= null)
+////			userTO.setGameId(user.getTeam().getGame().getGameId());
+//		
+//		userTO.setLatitude( user.getLatitude());
+//		userTO.setLongitude( user.getLongitude());
+//		
+//		return userTO;
+//	}
 
 	@Override
 	public LoginResultTO login(String username, String password)
