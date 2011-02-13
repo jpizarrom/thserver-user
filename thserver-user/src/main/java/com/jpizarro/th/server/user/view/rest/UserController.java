@@ -77,7 +77,7 @@ public class UserController implements GenericController <UserTO, Long>{
 	}
 
 	@Override
-	@RequestMapping(method=RequestMethod.POST, value="/")
+	@RequestMapping(method=RequestMethod.POST, value="")
 	public UserTO addEntity(@RequestBody UserTO body) {
 		// TODO Auto-generated method stub
 		UserTO r = new UserTO();

@@ -558,7 +558,7 @@
 					</requestLog>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8070</port>
+							<port>8071</port>
 						</connector>
 					</connectors>
 				</configuration>
