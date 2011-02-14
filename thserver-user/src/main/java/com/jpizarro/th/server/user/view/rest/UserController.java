@@ -13,19 +13,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
+import com.jpizarro.th.lib.user.util.UserRestURL;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.DuplicateInstanceException;
 import com.jpizarro.th.server.generic.model.persistence.util.exceptions.InstanceNotFoundException;
 import com.jpizarro.th.server.generic.view.rest.GenericController;
 import com.jpizarro.th.server.user.model.service.UserService;
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping(UserRestURL.ENTITY)
 public class UserController implements GenericController <UserTO, Long>{
 	@Autowired
 	private UserService userService;
 	private String XML_VIEW_NAME = "users";
 	
-	@RequestMapping(method=RequestMethod.GET, value="/{id}",
+	@RequestMapping(method=RequestMethod.GET, value=UserRestURL.ENTITY_ID,
 			headers="Accept=application/xml")
 	@ResponseBody
 	public UserTO getEntity(@PathVariable Long id) {
@@ -43,7 +44,7 @@ public class UserController implements GenericController <UserTO, Long>{
 //		return new ModelAndView(XML_VIEW_NAME, BindingResult.MODEL_KEY_PREFIX+"object", to);
 	}
 	
-	@RequestMapping(method=RequestMethod.DELETE, value="/{id}")
+	@RequestMapping(method=RequestMethod.DELETE, value=UserRestURL.ENTITY_ID)
 	public ModelAndView removeEntity(@PathVariable Long id) {
 		boolean ret = true;
 		try {
@@ -64,7 +65,7 @@ public class UserController implements GenericController <UserTO, Long>{
 	}
 
 	@Override
-	@RequestMapping(method=RequestMethod.PUT, value="/{id}")
+	@RequestMapping(method=RequestMethod.PUT, value=UserRestURL.ENTITY_ID)
 	@ResponseBody
 	public UserTO updateEntity(@PathVariable Long id, @RequestBody UserTO entity) {
 		// TODO Auto-generated method stub
