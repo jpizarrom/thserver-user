@@ -10,9 +10,6 @@ import com.jpizarro.th.server.user.model.entity.User;
 public interface UserAccessor 
 	extends GenericAccessor<User, Long> {
 
-//	public void create(User entity) 
-//		throws DuplicateInstanceException;
-	
 	public User findByUsername(String username) throws InstanceNotFoundException;
 	
 //	public List<User> findOrderedByPoints(int startIndex, int count);

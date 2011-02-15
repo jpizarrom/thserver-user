@@ -95,7 +95,7 @@
 					com.mysql.jdbc.Driver
         </jdbcDriver.className>
 				<!-- Data source properties -->
-				<dataSource.url>jdbc:mysql://localhost/memoria2</dataSource.url>
+				<dataSource.url>jdbc:mysql://localhost/memoria2-user</dataSource.url>
 				<dataSource.user>gpsgame</dataSource.user>
 				<dataSource.password>okxnt6s3ixtpc</dataSource.password>
 <!--				<dataSource.createTablesScript>-->

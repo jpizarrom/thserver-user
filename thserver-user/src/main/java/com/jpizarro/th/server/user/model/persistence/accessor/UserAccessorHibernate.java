@@ -27,6 +27,18 @@ implements UserAccessor {
 		return user;
 	}
 
+	@Override
+	public void create(User entity) throws DuplicateInstanceException {
+		// TODO Auto-generated method stub
+		try {
+			this.findByUsername(entity.getUsername());
+			throw new DuplicateInstanceException(entity, User.class.getName());
+		} catch (InstanceNotFoundException e) {
+			super.create(entity);
+		}
+		
+	}
+
 //	public List<User> findOrderedByPoints(int startIndex, int count) {
 //		// TODO Auto-generated method stub
 //		return null;
