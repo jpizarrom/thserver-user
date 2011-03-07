@@ -2,6 +2,9 @@ package com.jpizarro.th.lib.user.entity.response;
 
 import java.io.Serializable;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("login")
 public class LoginResultTO implements Serializable {
 
 	/**

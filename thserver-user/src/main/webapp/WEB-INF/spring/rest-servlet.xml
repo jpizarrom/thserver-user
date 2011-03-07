@@ -20,11 +20,17 @@
 
 	<bean id="xstreamMarshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
 		<property name="autodetectAnnotations" value="true" />
-	    <property name="aliases">
-	        <map>
-	            <entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />
-	        </map>
-	    </property>
+<!--	    <property name="aliases">-->
+<!--	        <map>-->
+<!--	            <entry key="user" value="com.jpizarro.th.lib.user.entity.UserTO" />-->
+<!--	        </map>-->
+<!--	    </property>-->
+			<property name="annotatedClasses">
+				<list>
+					<value>com.jpizarro.th.lib.user.entity.UserTO</value>
+					<value>com.jpizarro.th.lib.user.entity.response.LoginResultTO</value>
+				</list>
+			</property>
 	</bean>
 
 	<bean id="xmlView"

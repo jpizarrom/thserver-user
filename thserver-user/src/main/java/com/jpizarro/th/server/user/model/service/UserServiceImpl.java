@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService{
 			throws InstanceNotFoundException, IncorrectPasswordException {
 		// TODO Auto-generated method stub
 		User user = this.userAccessor.findByUsername(username);
-		if (password .equals(user.getPassword()))
+		if (password.equals(user.getPassword()))
 		//if (PasswordEncrypter.isClearPasswordCorrect(clearPassword, player
 		//		.getUserData().getEncryptedPassword()))
 			return new LoginResultTO(user.getUserId(), user.getRole(), user.getUsername());
@@ -76,11 +76,18 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public boolean changePassword(String login, String oldClearPassword,
-			String newClearPassword) throws InstanceNotFoundException,
+	@Transactional
+	public boolean changePassword(String username, String oldPassword,
+			String newPassword) throws InstanceNotFoundException,
 			IncorrectPasswordException {
 		// TODO Auto-generated method stub
-		return false;
+		User u = userAccessor.findByUsername(username);
+		if ( u.getPassword().equals(oldPassword) ){
+			u.setPassword(newPassword);
+			userAccessor.update(u);
+			return true;
+		}
+		throw new IncorrectPasswordException(username);
 	}
 
 	@Override
