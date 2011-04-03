@@ -19,7 +19,7 @@ import org.springframework.test.context.transaction.TransactionalTestExecutionLi
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/app-config.xml")
-@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
+//@TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
 @Transactional
 //@TestExecutionListeners( {  TransactionalTestExecutionListener.class })
 public class UserTest {
