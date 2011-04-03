@@ -407,7 +407,22 @@
 			<version>1.2.10</version>
 		</dependency>
 
-
+  <!-- ========================================================== -->
+		<dependency>
+		    <groupId>com.jpizarro.th</groupId>
+		    <artifactId>thlib-generic</artifactId>
+            <version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.jpizarro.th</groupId>
+		    <artifactId>thlib-server-generic</artifactId>
+            <version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.jpizarro.th</groupId>
+		    <artifactId>thlib-user</artifactId>
+            <version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<!-- ========================================================== -->
@@ -513,27 +528,26 @@
 				</configuration>
 			</plugin>
 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>add-source</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<!--<source>thlib</source> -->
-								<source>../../generic/thlib-generic/src/main/java/</source>
-								<source>../../generic/thlib-server-generic/src/main/java/</source>
-                                <source>../../user/thlib-user/src/main/java/</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.mojo</groupId> -->
+<!-- 				<artifactId>build-helper-maven-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>add-source</id> -->
+<!-- 						<phase>generate-sources</phase> -->
+<!-- 						<goals> -->
+<!-- 							<goal>add-source</goal> -->
+<!-- 						</goals> -->
+<!-- 						<configuration> -->
+<!-- 							<sources> -->
+<!-- 								<source>../../generic/thlib-generic/src/main/java/</source> -->
+<!-- 								<source>../../generic/thlib-server-generic/src/main/java/</source> -->
+<!--                                 <source>../../user/thlib-user/src/main/java/</source> -->
+<!-- 							</sources> -->
+<!-- 						</configuration> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 
 
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-shade-plugin</artifactId> 

@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.jpizarro.th.lib.user</groupId>
+	<groupId>com.jpizarro.th</groupId>
 	<artifactId>thlib-user</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
 	<!-- TODO project name  -->
-	<name>quickstart</name>
+	<name>thlib-user</name>
 	<description></description>
 	<!--
 		TODO <organization> <name>company name</name> <url>company url</url>
@@ -76,6 +76,13 @@
 <!--		    <artifactId>xpp3</artifactId>-->
 <!--		    <version>1.1.4c</version>-->
 <!--		</dependency>-->
+
+  <!-- ========================================================== -->
+		<dependency>
+		    <groupId>com.jpizarro.th</groupId>
+		    <artifactId>thlib-generic</artifactId>
+            <version>1.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
   <!-- ========================================================== -->
@@ -121,6 +128,17 @@
 
   <!-- ========================================================== -->
     <plugins>
+			<plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId> 
+				<artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source> 
+                    <target>1.5</target>
+                    <optimize>true</optimize>
+                    <debug>true</debug> 
+                </configuration> 
+            </plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
