@@ -153,12 +153,12 @@ public class User {
 //		this.placesICanSee = placesICanSee;
 //	}
 //
-//	@Override
-//	public String toString() {
-//		return "User [latitude=" + latitude + ", longitude=" + longitude
-//				+ ", password=" + password + ", role=" + role + ", team="
-//				+ team + ", userId=" + userId + ", userName=" + username + "]";
-//	}
+	@Override
+	public String toString() {
+		return "User [latitude=" + latitude + ", longitude=" + longitude
+				+ ", password=" + password + ", role=" + role + ", team="
+				+ ", userId=" + userId + ", userName=" + username + "]";
+	}
 
 	public void setShowPersonalInfo(boolean showPersonalInfo) {
 		this.showPersonalInfo = showPersonalInfo;

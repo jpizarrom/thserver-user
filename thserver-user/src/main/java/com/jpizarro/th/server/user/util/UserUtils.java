@@ -32,6 +32,8 @@ public class UserUtils {
 		u.setUserId(to.getUserId());
 		u.setName(to.getName());
 		u.setUsername(to.getUsername());
+		u.setPassword(to.getPassword());
+		u.setRole(to.getRole());
 		
 		return u;
 	}

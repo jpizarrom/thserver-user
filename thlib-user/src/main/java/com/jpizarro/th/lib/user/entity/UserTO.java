@@ -4,27 +4,38 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 @XStreamAlias("user")
+@Root
 public class UserTO implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7534948413604544467L;
+	@Element(required=false)
 	private long userId;
+	@Element(required=false)
 	private String username;
+	@Element(required=false)
 	private String password;
 	//	private PersonalInformation personalInformation;
 //	private long gameId;
 //	private long teamId;
 
+	@Element(required=false)
 	private String name;
-	private String description;
+//	private String description;
+	@Element(required=false)
 	private int latitude;
+	@Element(required=false)
 	private int longitude;
-
+	
+	@Element(required=false)
 	private String role;
 
 	public UserTO() {

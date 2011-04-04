@@ -1,5 +1,8 @@
 package com.jpizarro.th.lib.user.entity.response;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
+@XStreamAlias("userregister")
 public class UserRegisterTO {
 	private String username;
 	private String password;
