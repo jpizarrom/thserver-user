@@ -26,5 +26,9 @@ public interface UserService extends GenericService <UserTO, Long>{
 	public boolean updatePersonalInfo(String username, 
 			UpdatePersonalInfoTO updatePersonalInfoTO)
 		throws InstanceNotFoundException;
+	
+	public boolean updateLocation(Long id, 
+			int latitude, int longitude)
+		throws InstanceNotFoundException;
 
 }

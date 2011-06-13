@@ -155,4 +155,17 @@ public class UserServiceImpl implements UserService{
 		return to;
 	}
 
+	@Override
+	@Transactional
+	public boolean updateLocation(Long arg0, int arg1, int arg2)
+			throws InstanceNotFoundException {
+		User user = userAccessor.find(arg0);
+		
+		user.setLatitude(arg1);
+		user.setLongitude(arg2);
+		
+		userAccessor.update(user);
+		return true;
+	}
+
 }

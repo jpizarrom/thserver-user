@@ -176,4 +176,21 @@ public class UserController implements GenericController <UserTO, Long>{
 		return false;
 		
 	}
+	@RequestMapping(method=RequestMethod.GET, value=UserRestURL.ENTITY_ID+UserRestURL.UPDATE_LOCATION)
+	@ResponseBody
+	public boolean updateLocation(
+			@PathVariable Long id,
+			@RequestParam(value="latitude",required=true) int latitude, 
+			@RequestParam(value="longitude",required=true) int longitude
+			){
+		boolean r = false;
+		try {
+			r = userService.updateLocation(id, latitude, longitude);
+		} catch (InstanceNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return r;
+	}
 }

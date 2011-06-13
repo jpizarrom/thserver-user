@@ -12,5 +12,6 @@ public class UserRestURL {
 	public static final String CHANGE_PASSWORD = "/changePassword/{username}";
 	public static final String UPDATE_PERSONALINFO = "/updatePersonalInfo";
 	public static final String FIND_USER_BY_USERNAME = "/byUsername/{username}";
+	public static final String UPDATE_LOCATION = "/updateLocation";
 
 }
