@@ -276,11 +276,11 @@
 		</dependency>
 		<!-- OPTIONAL <dependency> <groupId>org.apache.wicket</groupId> <artifactId>wicket-extensions</artifactId> 
 			<version>${wicket.version}</version> </dependency> -->
-		<dependency>
-			<groupId>org.wicketstuff</groupId>
-			<artifactId>annotation</artifactId>
-			<version>1.4.12</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.wicketstuff</groupId> -->
+<!-- 			<artifactId>annotation</artifactId> -->
+<!-- 			<version>1.4.12</version> -->
+<!-- 		</dependency> -->
 
 		<!-- LOGGING DEPENDENCIES - LOG4J -->
 		<dependency>

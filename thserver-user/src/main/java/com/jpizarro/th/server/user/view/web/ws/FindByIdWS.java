@@ -1,8 +1,6 @@
 package com.jpizarro.th.server.user.view.web.ws;
 
 import org.apache.wicket.PageParameters;
-import org.wicketstuff.annotation.mount.MountPath;
-import org.wicketstuff.annotation.strategy.MountMixedParam;
 
 import com.jpizarro.th.lib.user.entity.UserTO;
 import com.jpizarro.th.lib.user.util.xml.xstream.UserXStreamFactory;
@@ -12,8 +10,8 @@ import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.view.web.application.WicketApplication;
 import com.thoughtworks.xstream.XStream;
 
-@MountPath(path = "/ws/findById")
-@MountMixedParam(parameterNames={"userId"})
+//@MountPath(path = "/ws/findById")
+//@MountMixedParam(parameterNames={"userId"})
 public class FindByIdWS extends GenericWS {
 
 	public FindByIdWS(PageParameters parameters) {

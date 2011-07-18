@@ -1,7 +1,6 @@
 package com.jpizarro.th.server.user.view.web.ws;
 
 import org.apache.wicket.PageParameters;
-import org.wicketstuff.annotation.mount.MountPath;
 
 //import com.jpizarro.th.lib.game.entity.GameTO;
 import com.jpizarro.th.lib.user.entity.UserTO;
@@ -16,7 +15,7 @@ import com.jpizarro.th.server.user.view.web.application.WicketApplication;
 import com.jpizarro.th.server.user.view.web.session.WicketSession;
 import com.thoughtworks.xstream.XStream;
 
-@MountPath(path = "/ws/login")
+//@MountPath(path = "/ws/login")
 public class LoginWS extends GenericWS {
 
 	public LoginWS(PageParameters parameters) {

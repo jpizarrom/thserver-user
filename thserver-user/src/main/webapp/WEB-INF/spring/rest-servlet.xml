@@ -14,7 +14,10 @@
 <!--   <import resource="annotation.xml"/>  -->
 <!--   <import resource="marshalling.xml">  -->
 
+		<!-- Scans for annotated @Controllers in the classpath -->
 		<context:component-scan base-package="com.jpizarro.th" />
+		
+		<!-- Configures transaction management around @Transactional components -->
 		<tx:annotation-driven />
 <!--		<mvc:annotation-driven />-->
 

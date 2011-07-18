@@ -1,14 +1,13 @@
 package com.jpizarro.th.server.user.view.web.ws;
 
 import org.apache.wicket.PageParameters;
-import org.wicketstuff.annotation.mount.MountPath;
 
 import com.jpizarro.th.lib.user.util.xml.xstream.UserXStreamFactory;
 import com.jpizarro.th.server.generic.view.web.ws.util.GenericWS;
 import com.jpizarro.th.server.user.view.web.session.WicketSession;
 import com.thoughtworks.xstream.XStream;
 
-@MountPath(path = "/ws/logout")
+//@MountPath(path = "/ws/logout")
 public class LogoutWS extends GenericWS {
 	public LogoutWS(PageParameters parameters) {
 		super(parameters, new UserXStreamFactory());

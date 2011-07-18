@@ -15,7 +15,6 @@ import org.apache.wicket.request.IRequestCycleProcessor;
 import org.apache.wicket.request.target.coding.MixedParamUrlCodingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.wicketstuff.annotation.scan.AnnotatedMountScanner;
 
 import com.jpizarro.th.server.user.model.service.UserService;
 import com.jpizarro.th.server.user.view.web.session.WicketSession;
@@ -89,7 +88,7 @@ public class WicketApplication extends AuthenticatedWebApplication
 //		mountBookmarkablePage("/notFinishedGames", NotFinishedGamesListPage.class);
 //		mountBookmarkablePage("/finishedGames", .class);
 
-		new AnnotatedMountScanner().scanPackage("com.jpizarro.th.server").mount(this);
+//		new AnnotatedMountScanner().scanPackage("com.jpizarro.th.server").mount(this);
 
 		
 		/* Testing Web Pages*/
