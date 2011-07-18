@@ -22,10 +22,11 @@
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
 	<!-- Data source. -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:driverClassName="${datasource.driver}" p:url="${datasource.url}"
-		p:username="${datasource.username}" p:password="${datasource.password}" />
+	<import resource="ds.xml"/>
+<!-- 	<bean id="dataSource" -->
+<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource" -->
+<!-- 		p:driverClassName="${datasource.driver}" p:url="${datasource.url}" -->
+<!-- 		p:username="${datasource.username}" p:password="${datasource.password}" /> -->
 
 	<!-- Hibernate Session Factory -->
 	<bean id="sessionFactory"

@@ -33,16 +33,37 @@
 				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>wicket-snaps</id>
-			<url>http://wicketstuff.org/maven/repository</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
+		<!-- For testing against latest Spring snapshots -->
+        <repository>
+            <id>org.springframework.maven.snapshot</id>
+            <name>Spring Maven Snapshot Repository</name>
+            <url>http://maven.springframework.org/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+		<!-- For developing against latest Spring milestones -->
+        <repository>
+            <id>org.springframework.maven.milestone</id>
+            <name>Spring Maven Milestone Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+<!-- 		<repository> -->
+<!-- 			<id>wicket-snaps</id> -->
+<!-- 			<url>http://wicketstuff.org/maven/repository</url> -->
+<!-- 			<snapshots> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</snapshots> -->
+<!-- 			<releases> -->
+<!-- 				<enabled>true</enabled> -->
+<!-- 			</releases> -->
+<!-- 		</repository> -->
 
         <repository>
             <id>OSGEO GeoTools repo</id>
@@ -52,10 +73,14 @@
             <id>Hibernate Spatial repo</id>
             <url>http://www.hibernatespatial.org/repository</url>
         </repository>
-        <!-- add JBOSS repository for easy access to Hibernate libraries -->
+		<!-- For Hibernate -->
         <repository>
-            <id>JBOSS</id>
-            <url>http://repository.jboss.com/maven2</url>
+            <id>org.jboss.repository.releases</id>
+            <name>JBoss Maven Release Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
 
 	</repositories>
@@ -155,6 +180,13 @@
 			<artifactId>hibernate-annotations</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+
+		<!-- cloudfoundry -->
+        <dependency>
+            <groupId>org.cloudfoundry</groupId>
+            <artifactId>cloudfoundry-runtime</artifactId>
+            <version>${org.cloudfoundry-version}</version>
+        </dependency>
 		<!--******************* Spring ******************* -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -682,5 +714,6 @@
 		<org.slf4j.version>1.6.1</org.slf4j.version>
 		<axis2.version>1.5.2</axis2.version>
 		<jdbc.version>5.1.13</jdbc.version>
+		<org.cloudfoundry-version>0.6.1</org.cloudfoundry-version>
 	</properties>
 </project>

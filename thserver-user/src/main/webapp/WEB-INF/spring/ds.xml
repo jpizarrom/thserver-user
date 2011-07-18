@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+        xmlns:cloud="http://schema.cloudfoundry.org/spring"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://schema.cloudfoundry.org/spring http://schema.cloudfoundry.org/spring/cloudfoundry-spring-0.6.xsd
+       http://www.springframework.org/schema/cloud http://www.springframework.org/schema/cloud/spring-cloud.xsd
+       ">
+
+    <beans  profile="default">
+        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="url" value="${datasource.url}"/>
+            <property name="driverClassName" value="${datasource.driver}"/>
+            <property name="username" value="${datasource.username}"/>
+            <property name="password" value="${datasource.password}"/>
+        </bean>
+    </beans>
+
+    <beans profile="cloud">
+        <cloud:data-source id="dataSource" service-name="thserver-user-db"/>
+    </beans>
+
+</beans>
