@@ -39,17 +39,20 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			throw new BadCredentialsException(e.getLocalizedMessage());
 		}
 
-		GrantedAuthority[] grantedAuthorities = null;
+//		GrantedAuthority[] grantedAuthorities = null;
+		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
+
 		if (loginResultTO != null) {
 			// TODO : take real roles from player
 			List<String> roles = new ArrayList<String>();
 			roles.add(loginResultTO.getRole());
-			grantedAuthorities = new GrantedAuthority[roles.size()];
+//			grantedAuthorities = new GrantedAuthority[roles.size()];
 			for (int i = 0; i < roles.size(); i++) {
 				String role = roles.get(i);
 				GrantedAuthority grantedAuthority = new GrantedAuthorityImpl(
 						role);
-				grantedAuthorities[i] = grantedAuthority;
+//				grantedAuthorities[i] = grantedAuthority;
+				grantedAuthorities.add(grantedAuthority);
 			}
 		} else {
 			throw new BadCredentialsException("Invalid login/password");
