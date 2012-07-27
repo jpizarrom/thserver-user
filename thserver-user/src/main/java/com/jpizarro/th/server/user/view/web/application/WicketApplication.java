@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.jpizarro.th.server.user.model.service.UserService;
+import com.jpizarro.th.server.user.view.web.pages.BasePage;
 import com.jpizarro.th.server.user.view.web.session.WicketSession;
 
 /**
@@ -46,55 +47,6 @@ public class WicketApplication extends AuthenticatedWebApplication
 	protected void init() {
 		// TODO Auto-generated method stub
 		super.init();
-		
-		/* WS */
-//		mountBookmarkablePage("/ws/login", LoginWS.class);
-//		mountBookmarkablePage("/ws/logout", LogoutWS.class);
-//		mountBookmarkablePage("/ws/updateLocation", UpdateLocationWS.class);
-//		mountBookmarkablePage("/ws/updatePersonalInfo", .class);
-//		mountBookmarkablePage("/ws/register", .class);
-//		mountBookmarkablePage("/ws/changePassword", .class);
-//		mountBookmarkablePage("/ws/getPublicUserProfile", .class);
-		
-//		mountBookmarkablePage("/ws/findGameById", FindGameByIdWS.class);
-//		mountBookmarkablePage("/ws/findCitiesWithGames", FindCitiesWithGamesWS.class);
-//		mountBookmarkablePage("/ws/findGamesByCity", FindGamesByCityWS.class);
-//		mountBookmarkablePage("/ws/findGamesByLocation", .class);
-		
-//		mountBookmarkablePage("/ws/findTeamById", FindTeamByIdWS.class);
-//		mountBookmarkablePage("/ws/findTeamsByGame", FindTeamsByGameWS.class);
-		
-//		mountBookmarkablePage("/ws/joinGame", JoinGameWS.class);
-//		mountBookmarkablePage("/ws/abandonGame", AbandonGameWS.class);
-//		mountBookmarkablePage("/ws/GameState", GameStateWS.class);
-//		mountBookmarkablePage("/ws/takePlace", TakePlaceWS.class);
-		
-//		mountBookmarkablePage("/ws/sendMessage", SendMessageWS.class);
-//		mountBookmarkablePage("/ws/findMessages", .class);
-
-		/* Web Pages*/
-//		mountBookmarkablePage("/user/home", UserHomePage.class);
-//		mountBookmarkablePage("/login", LoginPage.class);
-//		mountBookmarkablePage("/register", RegisterPage.class);
-		
-//		mountBookmarkablePage("/createGame", .class);
-//		mountBookmarkablePage("/editGame", .class);
-//		mountBookmarkablePage("/gameDetails", GameDetailsPage.class);
-//		mount(new MixedParamUrlCodingStrategy("gameDetails", GameDetailsPage.class,
-//                new String[] {"gameId"}));
-
-//		mountBookmarkablePage("/watchGame", .class);
-//		mountBookmarkablePage("/activeGames", .class);
-//		mountBookmarkablePage("/notFinishedGames", NotFinishedGamesListPage.class);
-//		mountBookmarkablePage("/finishedGames", .class);
-
-//		new AnnotatedMountScanner().scanPackage("com.jpizarro.th.server").mount(this);
-
-		
-		/* Testing Web Pages*/
-//		mountBookmarkablePage("/ws/game/GameTest", GameTestWS.class);
-		
-//		getApplicationSettings().setAccessDeniedPage(LoginPage.class);
 		/*
          * Remove wicket tags from result HTML
          */
@@ -115,8 +67,7 @@ public class WicketApplication extends AuthenticatedWebApplication
 //					return UserHomePage.class;
 //			}
 //		}
-//		return AnonymousHomePage.class;
-		return null;
+		return BasePage.class;
 	}
 	
 	@Override
