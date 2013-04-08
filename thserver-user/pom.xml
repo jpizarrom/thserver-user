@@ -227,16 +227,15 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring-security.version}</version>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring-security.version}</version>
-			<optional>true</optional>
+<!-- 			<optional>true</optional> -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+<!-- 			<optional>true</optional> -->
 		</dependency>
 <!--		<dependency>-->
 <!--		    <groupId>org.springframework.ws</groupId>-->
@@ -724,6 +723,6 @@
 		<axis2.version>1.6.2</axis2.version>
 		<jdbc.version>5.1.13</jdbc.version>
 		<org.cloudfoundry-version>0.8.1</org.cloudfoundry-version>
-		<spring-security.version>3.1.1.RELEASE</spring-security.version>
+		<spring-security.version>3.1.3.RELEASE</spring-security.version>
 	</properties>
 </project>
