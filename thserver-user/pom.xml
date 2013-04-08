@@ -223,18 +223,20 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-security.version}</version>
+			<optional>true</optional>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-security.version}</version>
+			<optional>true</optional>
 		</dependency>
 <!--		<dependency>-->
 <!--		    <groupId>org.springframework.ws</groupId>-->
@@ -716,11 +718,12 @@
 	<properties>
 		<wicket.version>1.4.12</wicket.version>
 		<jetty.version>6.1.4</jetty.version>
-		<spring.version>3.1.0.M1</spring.version>
+		<spring.version>3.1.0.RELEASE</spring.version>
 		<hibernate.version>3.5.4-Final</hibernate.version>
 		<org.slf4j.version>1.6.1</org.slf4j.version>
-		<axis2.version>1.5.2</axis2.version>
+		<axis2.version>1.6.2</axis2.version>
 		<jdbc.version>5.1.13</jdbc.version>
-		<org.cloudfoundry-version>0.6.1</org.cloudfoundry-version>
+		<org.cloudfoundry-version>0.8.1</org.cloudfoundry-version>
+		<spring-security.version>3.1.1.RELEASE</spring-security.version>
 	</properties>
 </project>
